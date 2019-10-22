@@ -1,0 +1,9 @@
+{
+  "short_name": "React Calculator Playground",
+  "name": "React Calculator Playground",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
