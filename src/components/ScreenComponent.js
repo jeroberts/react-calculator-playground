@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ScreenComponent = (props) => {
     return (
         <div className="screen">
-            <p className="screen-span">{props.result}</p>
+            <p className="screen-p">{props.result}</p>
         </div>
     );
 }
