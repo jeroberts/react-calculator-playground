@@ -5,43 +5,51 @@ import KeypadComponent from './KeypadComponent';
 
 class Calculator extends Component {
 
-// TODO : 
-//  1. Look into more input sanitization - only allow one "."
-//  2. Make display look nicer/little bigger
-//  3. 
-
   state = {
     result: ""
   };
 
   onClickHandler = (buttonClicked) => {
-    console.log("Button clicked: 3" + buttonClicked)
     if (buttonClicked === 'C') {
-      this.handleClear();
+      this._handleClear();
     } else if (buttonClicked === '=') {
-      this.handleCalculate();
+      this._handleCalculate();
+    } else if (buttonClicked === '.' ) {
+      // Ensure that decimal numbers stay valid with only one decimal point
+      const splitResult = this.state.result.split(/\+|-|x|\//);
+      if (splitResult[splitResult.length - 1].indexOf('.') === -1) {
+        this._handleInput(buttonClicked);
+      }
     } else {
-      this.handleInput(buttonClicked);
+      this._handleInput(buttonClicked);
     }
   }
 
-  handleInput = (input) => {
+  _handleInput = (input) => {
     this.setState({
       result: this.state.result + input
     });
   }
 
-  handleClear = () => {
+  _handleClear = () => {
     this.setState({
       result: ""
     });
   }
 
-  handleCalculate = () => {
-    const sanitizedResult = this.state.result.replace('x', '*');
-    this.setState({
-      result: eval(sanitizedResult).toString()
-    });
+  _handleCalculate = () => {
+    const lastCharacterOfExpression = this.state.result.slice(-1);
+    const expressionEndsWithNumber = !isNaN(lastCharacterOfExpression);
+    const experssionEndsWithPeriod = lastCharacterOfExpression === '.';
+
+    if (expressionEndsWithNumber || experssionEndsWithPeriod) {
+      // Change all 'x' into '*' so that expression is valid
+      const validExpression = this.state.result.replace(/x/g, '*');
+
+      this.setState({
+        result: eval(validExpression).toString()
+      });
+    }
   }
 
   render() {
