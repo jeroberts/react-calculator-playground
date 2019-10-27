@@ -6,30 +6,35 @@ body {
 
 .calculator {
   align-content: center;
+  height: 350px;
   margin: auto;
   width: 350px;
-  height: 350px;
 }
 
 .button {
-  width: 25%;
-  height: 59px;
   color: black;
+  height: 59px;
+  width: 25%;
 }
 
 .equals-button {
   color: gray;
-  width: 100%;
   height: 60px;
+  width: 100%;
 }
 
 .row {
-  width: auto;
-  height: auto;
   display: block;
+  height: auto;
+  width: auto;
 }
 
 .screen {
-  height: 15%;
   background-color: lightgray;
+  height: 15%;
+}
+
+.screen-p {
+  text-align: right;
+  font-size: large;
 }

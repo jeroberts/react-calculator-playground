@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import InputButton from './InputButton';
 
@@ -7,13 +8,13 @@ const KeypadComponent = (props) => {
         <div>
             <div className="row">
                 <InputButton 
-                    value={1} 
+                    value={'1'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
-                    value={2} 
+                    value={'2'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
-                    value={3} 
+                    value={'3'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
                     value={'+'} 
@@ -21,13 +22,13 @@ const KeypadComponent = (props) => {
             </div>
             <div className="row">
                 <InputButton 
-                    value={4} 
+                    value={'4'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
-                    value={5} 
+                    value={'5'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
-                    value={6} 
+                    value={'6'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
                     value={'-'} 
@@ -35,13 +36,13 @@ const KeypadComponent = (props) => {
             </div>
             <div className="row">
                 <InputButton 
-                    value={7} 
+                    value={'7'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
-                    value={8} 
+                    value={'8'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
-                    value={9} 
+                    value={'9'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
                     value={'x'} 
@@ -52,7 +53,7 @@ const KeypadComponent = (props) => {
                     value={'C'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
-                    value={0} 
+                    value={'0'} 
                     onClickHandler={props.onClickHandler}/>
                 <InputButton 
                     value={'.'} 
@@ -68,6 +69,10 @@ const KeypadComponent = (props) => {
             </div>
         </div>
     );
+}
+
+KeypadComponent.propTypes = {
+    onClickHandler: PropTypes.func.isRequired
 }
 
 export default KeypadComponent;
