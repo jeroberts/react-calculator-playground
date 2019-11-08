@@ -5,6 +5,8 @@ import KeypadComponent from './KeypadComponent';
 
 class Calculator extends Component {
 
+  bill = 'bill';
+
   state = {
     result: ""
   };
